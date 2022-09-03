@@ -46,3 +46,5 @@ The following acoustic properties of each voice are measured:
 - **KMeans Algorithm:** Here we selected the number of cluster to be 2 with random state of 42.
 
 - **Agglomerative Clustering:** We can deduce from the above information that although the Agglomerative algorithm has done a good job in clustering this data, but the Kmeans algorithm has done a better job.
+
+- **DBSCAN:** After several hyperparemeter changing, I discovered that we cannot use dbscan for this problem because we cannot explicitly specify the number of cluster we want
