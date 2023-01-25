@@ -2,6 +2,8 @@
 
 ![image](https://user-images.githubusercontent.com/96771321/188281821-76c88f8d-0cb4-4a8b-92b2-dcc5fb28ba13.png)
 
+> View Notebook: https://github.com/Davidsonity/Clustering---GenderByVoice/blob/main/Gender.ipynb
+
 ### **Objectives**
 The objective of this project is to use several unsupervised machine learning algorithm to group voices. We would be focused on clustering the dataset into male or female.
 
@@ -43,8 +45,12 @@ The following acoustic properties of each voice are measured:
 
 ### **Summary of training at least three variations of the unsupervised model**
 > In this project, we applied three(3) unsupervised machine learning algorithm
-- **KMeans Algorithm:** Here we selected the number of cluster to be 2 with random state of 42.
+- **KMeans Algorithm:** Here we selected the number of cluster to be 2 with random state of 42. We obtained the results below:
+![kmeans](https://user-images.githubusercontent.com/96771321/214647464-19c5acb2-9a6d-4406-a455-009c3c3a6253.png)
 
-- **Agglomerative Clustering:** We can deduce from the above information that although the Agglomerative algorithm has done a good job in clustering this data, but the Kmeans algorithm has done a better job.
+
+- **Agglomerative Clustering:** We can deduce from the above information that although the Agglomerative algorithm has done a good job in clustering this data, but the Kmeans algorithm has done a better job. We obtained the results below
+![kmeans](https://user-images.githubusercontent.com/96771321/214647521-51172e53-fa92-4b64-945b-62b516d0f3c7.png)
+
 
 - **DBSCAN:** After several hyperparemeter changing, I discovered that we cannot use dbscan for this problem because we cannot explicitly specify the number of cluster we want
