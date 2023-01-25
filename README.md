@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/96771321/188281821-76c88f8d-0cb4-4a8b-92b2-dcc5fb28ba13.png)
 
-> View Notebook: https://github.com/Davidsonity/Clustering---GenderByVoice/blob/main/Gender.ipynb
+> View Notebook: https://github.com/Davidsonity/GenderByVoice/blob/main/Gender.ipynb
 
 ### **Objectives**
 The objective of this project is to use several unsupervised machine learning algorithm to group voices. We would be focused on clustering the dataset into male or female.
