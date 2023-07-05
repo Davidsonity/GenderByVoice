@@ -1,56 +1,66 @@
-# **Identifying the Gender by Voice using Unsupervised learning approach**
+## Voice Gender Clustering: Unsupervised Learning for Gender Identification
 
 ![image](https://user-images.githubusercontent.com/96771321/188281821-76c88f8d-0cb4-4a8b-92b2-dcc5fb28ba13.png)
 
-> View Notebook: https://github.com/Davidsonity/GenderByVoice/blob/main/Gender.ipynb
+> View Notebook: https://github.com/Davidsonity/GenderByVoice/blob/main/notebook.ipynb
 
-### **Objectives**
-The objective of this project is to use several unsupervised machine learning algorithm to group voices. We would be focused on clustering the dataset into male or female.
+---
 
-### **About Dataset**
-This database was created to identify a voice as male or female, based upon acoustic properties of the voice and speech. The dataset consists of 3,168 recorded voice samples, collected from male and female speakers.
+### Introduction
+The objective of this project is to utilize unsupervised machine learning techniques to identify the gender of a voice based on its acoustic properties. The project focuses on clustering the voice samples into subsets with similar behaviors, allowing us to distinguish between male and female voices.
 
-**Data Source:** https://www.kaggle.com/datasets/primaryobjects/voicegender
+### Dataset
+The dataset used in this project consists of 3,168 recorded voice samples collected from male and female speakers. Each voice sample is characterized by various acoustic properties, such as duration, mean frequency, standard deviation of frequency, spectral entropy, and more. The dataset provides valuable features that can be used to distinguish between male and female voices.
 
-**Attribute Information:**
-The following acoustic properties of each voice are measured:
-- duration: length of signal
-- meanfreq: mean frequency (in kHz)
-- sd: standard deviation of frequency
-- median: median frequency (in kHz)
-- Q25: first quantile (in kHz)
-- Q75: third quantile (in kHz)
-- IQR: interquantile range (in kHz)
-- skew: skewness (see note in specprop description)
-- kurt: kurtosis (see note in specprop description)
-- sp.ent: spectral entropy
-- sfm: spectral flatness
-- mode: mode frequency
-- centroid: frequency centroid (see specprop)
-- peakf: peak frequency (frequency with highest energy)
-- meanfun: average of fundamental frequency measured across acoustic signal
-- minfun: minimum fundamental frequency measured across acoustic signal
-- maxfun: maximum fundamental frequency measured across acoustic signal
-- meandom: average of dominant frequency measured across acoustic signal
-- mindom: minimum of dominant frequency measured across acoustic signal
-- maxdom: maximum of dominant frequency measured across acoustic signal
-- dfrange: range of dominant frequency measured across acoustic signal
-- modindx: modulation index. Calculated as the accumulated absolute difference between
-- abel: male or female
+**Data Source:** [Voice Gender Dataset](https://www.kaggle.com/datasets/primaryobjects/voicegender)
 
-### **Summary of Data Exploration and actions taken for data cleaning**
-- Some features in the data was skewed so I had to perform logrithmic transformation on highly skewed data.
-- Because we are using unsupervised approach, I also had to drop the target column before clustering.
-- Other than the above actions taken, the dataset used for this project didn't require further cleaning.
+### Repository Structure
+The repository contains the following files:
 
-### **Summary of training at least three variations of the unsupervised model**
-> In this project, we applied three(3) unsupervised machine learning algorithm
-- **KMeans Algorithm:** Here we selected the number of cluster to be 2 with random state of 42. We obtained the results below:
-![kmeans](https://user-images.githubusercontent.com/96771321/214647464-19c5acb2-9a6d-4406-a455-009c3c3a6253.png)
+- **Gender_Report.ipynb:** Jupyter Notebook file containing the project code, data wrangling, exploratory data analysis, and clustering operations.
+- **Gender_Report.pdf:** PDF version of the project report, which provides a detailed explanation of the project steps, results, and insights.
+- **LICENSE:** A file specifying the license terms and conditions for the project.
+- **README.md:** This file, providing an overview, instructions, and details about the project.
+- **notebook.ipynb:** An additional notebook file (not directly related to the gender clustering project).
+- **voice.csv:** The dataset file containing the voice samples' acoustic properties.
 
+### Preliminary Wrangling
+Before diving into the clustering process, some preliminary data wrangling steps are performed. These steps include importing necessary libraries, loading the dataset, and performing exploratory data analysis. The exploratory analysis involves visualizing numerical columns, checking the distribution of features, and identifying any skewed distributions that require transformation.
 
-- **Agglomerative Clustering:** We can deduce from the above information that although the Agglomerative algorithm has done a good job in clustering this data, but the Kmeans algorithm has done a better job. We obtained the results below
-![kmeans](https://user-images.githubusercontent.com/96771321/214647521-51172e53-fa92-4b64-945b-62b516d0f3c7.png)
+### Clustering Operations
+The main part of the project involves applying different clustering algorithms to the dataset. The following clustering algorithms are implemented:
 
+1. **K-means Clustering:** The K-means algorithm is used to group the voice samples into clusters based on their acoustic properties. The number of clusters is set to 2, representing male and female clusters. The algorithm assigns labels to each voice sample based on its cluster membership.
 
-- **DBSCAN:** After several hyperparemeter changing, I discovered that we cannot use dbscan for this problem because we cannot explicitly specify the number of cluster we want
+2. **Agglomerative Clustering:** The Agglomerative Clustering algorithm is employed to group the voice samples into clusters using a hierarchical approach. The algorithm merges similar clusters iteratively until the desired number of clusters is achieved. The number of clusters is set to 2, representing male and female clusters.
+
+3. **DBSCAN (Density-Based Spatial Clustering of Applications with Noise):** Although attempted, DBSCAN is found to be unsuitable for this problem since the number of clusters cannot be explicitly specified. Therefore, DBSCAN is not used for gender identification in this project.
+
+### Results and Insights
+The project provides several insights into the gender distribution within the voice clusters. The results obtained from K-means and Agglomerative Clustering are analyzed and visualized to gain a better understanding of the gender composition within each cluster. The following insights are derived:
+
+- K-means Clustering:
+  - Cluster 1: 61% female and 39% male
+  - Cluster 2: 33% female and 67% male
+
+- Agglomerative Clustering:
+  - Cluster 1: 35% female and 65% male
+  - Cluster 2: 61% female and 39% male
+
+The project demonstrates that both K-means and Agglomerative Clustering techniques can effectively group the voice samples into clusters with distinguishable gender compositions. The choice between the two algorithms depends on the specific requirements and preferences of the application.
+
+### Usage and Reproduction
+To reproduce the results of this project, follow these steps:
+
+1. Download the dataset (voice.csv) from the provided data source: [Voice Gender Dataset](https://www.kaggle.com/datasets/primaryobjects/voicegender).
+2. Ensure the required libraries are installed, including pandas, numpy, matplotlib, seaborn, and scikit-learn.
+3. Open the Jupyter Notebook file (Gender_Report.ipynb) in Jupyter Notebook or any compatible environment.
+4. Execute the cells in the notebook sequentially to perform data wrangling, exploratory data analysis, and clustering operations.
+5. Observe the visualization outputs and analysis provided in the notebook to gain insights into the gender clustering results.
+
+Please note that proper Python environment setup and familiarity with Jupyter Notebook are required to run the project successfully.
+
+### Contributors
+This project was developed by Emuejevoke Eshemitan as part of Research Purpose. Contributions, suggestions, and improvements are welcome.
+
+---
